@@ -61,9 +61,13 @@ public class Bird : MonoBehaviour {
             if (TestInput()) {
                 Jump();
             }
+            if (FaceManager.Singleton.MouthOpenValue >= 1)
+                {
+                    Jump();
+                }
 
-            // Rotate bird as it jumps and falls
-            transform.eulerAngles = new Vector3(0, 0, birdRigidbody2D.velocity.y * .15f);
+                    // Rotate bird as it jumps and falls
+                    transform.eulerAngles = new Vector3(0, 0, birdRigidbody2D.velocity.y * .15f);
             break;
         case State.Dead:
             break;
