@@ -34,7 +34,6 @@ public class Bird : MonoBehaviour {
     private State state;
 
     public float MouthOpenValue;
-    public Text MyDebugText;
 
     private enum State {
         WaitingToStart,
@@ -53,14 +52,7 @@ public class Bird : MonoBehaviour {
         switch (state) {
         default:
         case State.WaitingToStart:
-            if (TestInput()) {
-                // Start playing
-                state = State.Playing;
-                birdRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-                Jump();
-                if (OnStartedPlaying != null) OnStartedPlaying(this, EventArgs.Empty);
-            }
-            else if (MouthOpenValue >= 1)
+            if (MouthOpenValue >= 1)
                 {
                     // Start playing
                     state = State.Playing;
@@ -71,13 +63,9 @@ public class Bird : MonoBehaviour {
             
                     break;
         case State.Playing:
-            if (TestInput()) {
+            if (MouthOpenValue >= 1) {
                 Jump();
             }
-            else if (MouthOpenValue >= 1)
-                {
-                    Jump();
-                }
            
 
                     // Rotate bird as it jumps and falls
@@ -86,15 +74,15 @@ public class Bird : MonoBehaviour {
         case State.Dead:
             break;
         }
-        MyDebugText.text = MouthOpenValue.ToString();
+        
     }
 
-    public bool TestInput() {
-        return 
-            Input.GetKeyDown(KeyCode.Space) || 
-            Input.GetMouseButtonDown(0) ||
-            Input.touchCount > 0;
-    }
+    //public bool TestInput() {
+    //    return 
+    //        Input.GetKeyDown(KeyCode.Space) || 
+    //        Input.GetMouseButtonDown(0) ||
+    //        Input.touchCount > 0;
+    //}
 
     private void Jump() {
         birdRigidbody2D.velocity = Vector2.up * JUMP_AMOUNT;

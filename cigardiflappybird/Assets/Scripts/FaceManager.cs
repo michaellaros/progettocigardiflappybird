@@ -20,11 +20,19 @@ public class FaceManager : MonoBehaviour
 
     public void SetDefaultFaceVertices()
     {
-        if(currentFaceBehaviour != null)
+        if (currentFaceBehaviour != null)
         {
             currentFaceBehaviour.SetDefaultFaceVertices();
         }
     }
+
+    //public void SetOpenMouthFaceVertices()
+    //{
+    //    if (currentFaceBehaviour != null)
+    //    {
+    //        currentFaceBehaviour.SetOpenMouthFaceVertices();
+    //    }
+    //}
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +43,7 @@ public class FaceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        MyDebugText.text = MouthOpenValue.ToString();
+        Bird.Singleton.MouthOpenValue = MouthOpenValue;
     }
 }

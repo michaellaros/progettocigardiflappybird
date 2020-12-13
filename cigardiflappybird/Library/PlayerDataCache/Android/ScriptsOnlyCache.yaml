@@ -56,6 +56,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -113,8 +114,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12962}
     - Class: 114
-      Script: {instanceID: 13110}
-    - Class: 114
       Script: {instanceID: 13118}
     - Class: 114
       Script: {instanceID: 13240}
@@ -122,6 +121,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13468}
     - Class: 114
       Script: {instanceID: 13472}
+    - Class: 114
+      Script: {instanceID: 14076}
     - Class: 114
       Script: {instanceID: 14250}
     - Class: 114
@@ -154,6 +155,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15836}
     - Class: 114
       Script: {instanceID: 15886}
+    - Class: 114
+      Script: {instanceID: 16826}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -494,12 +497,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARPlane
-  - hash:
-      serializedVersion: 2
-      Hash: 6c4541e015544da79e7f43a6d4caeaa0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FaceManager
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -1070,6 +1067,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 6c4541e015544da79e7f43a6d4caeaa0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FaceManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Loading.unity
