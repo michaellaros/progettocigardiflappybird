@@ -645,6 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c497fd6a5a76a9f4488eedad9595ceb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MouthOpenValue: 0
+  MyDebugText: {fileID: 924086775}
 --- !u!1 &439100304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -350}
+  m_AnchoredPosition: {x: 130, y: -400}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924086775
@@ -1874,10 +1876,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.8
+    x: 0.01
+    y: 0.79
     width: 0.3
-    height: 1
+    height: 0.2
   near clip plane: 0.1
   far clip plane: 20
   field of view: 60

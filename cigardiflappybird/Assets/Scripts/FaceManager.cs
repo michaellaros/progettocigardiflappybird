@@ -13,7 +13,7 @@ public class FaceManager : MonoBehaviour
 
     public float MouthOpenValue;
 
-    void OnEnable()
+    private void OnEnable()
     {
         Singleton = this;
     }
@@ -35,6 +35,6 @@ public class FaceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 }

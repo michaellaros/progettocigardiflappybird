@@ -15,15 +15,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey;
+using UnityEngine.UI;
 
 public class Bird : MonoBehaviour {
 
     private const float JUMP_AMOUNT = 90f;
 
-    private static Bird instance;
+    public static Bird Singleton;
 
     public static Bird GetInstance() {
-        return instance;
+        return Singleton;
     }
 
     public event EventHandler OnDied;
@@ -32,6 +33,9 @@ public class Bird : MonoBehaviour {
     private Rigidbody2D birdRigidbody2D;
     private State state;
 
+    public float MouthOpenValue;
+    public Text MyDebugText;
+
     private enum State {
         WaitingToStart,
         Playing,
@@ -39,7 +43,7 @@ public class Bird : MonoBehaviour {
     }
 
     private void Awake() {
-        instance = this;
+        Singleton = this;
         birdRigidbody2D = GetComponent<Rigidbody2D>();
         birdRigidbody2D.bodyType = RigidbodyType2D.Static;
         state = State.WaitingToStart;
@@ -56,15 +60,25 @@ public class Bird : MonoBehaviour {
                 Jump();
                 if (OnStartedPlaying != null) OnStartedPlaying(this, EventArgs.Empty);
             }
-            break;
+            else if (MouthOpenValue >= 1)
+                {
+                    // Start playing
+                    state = State.Playing;
+                    birdRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                    Jump();
+                    if (OnStartedPlaying != null) OnStartedPlaying(this, EventArgs.Empty);
+                }
+            
+                    break;
         case State.Playing:
             if (TestInput()) {
                 Jump();
             }
-            if (FaceManager.Singleton.MouthOpenValue >= 1)
+            else if (MouthOpenValue >= 1)
                 {
                     Jump();
                 }
+           
 
                     // Rotate bird as it jumps and falls
                     transform.eulerAngles = new Vector3(0, 0, birdRigidbody2D.velocity.y * .15f);
@@ -72,9 +86,10 @@ public class Bird : MonoBehaviour {
         case State.Dead:
             break;
         }
+        MyDebugText.text = MouthOpenValue.ToString();
     }
 
-    private bool TestInput() {
+    public bool TestInput() {
         return 
             Input.GetKeyDown(KeyCode.Space) || 
             Input.GetMouseButtonDown(0) ||

@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Bird
     - CodeMonkey.Assets
     - CodeMonkey.Utils.Button_UI
+    - FaceBehaviour
     - FaceManager
     - GameAssets
     - GameHandler
@@ -98,23 +99,27 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11842}
+      Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 11870}
+      Script: {instanceID: 11868}
+    - Class: 114
+      Script: {instanceID: 12196}
     - Class: 114
       Script: {instanceID: 12198}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 12258}
     - Class: 114
-      Script: {instanceID: 12260}
+      Script: {instanceID: 12348}
     - Class: 114
-      Script: {instanceID: 12350}
+      Script: {instanceID: 12962}
     - Class: 114
-      Script: {instanceID: 12964}
+      Script: {instanceID: 13110}
     - Class: 114
       Script: {instanceID: 13118}
     - Class: 114
       Script: {instanceID: 13240}
+    - Class: 114
+      Script: {instanceID: 13468}
     - Class: 114
       Script: {instanceID: 13472}
     - Class: 114
@@ -149,8 +154,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15836}
     - Class: 114
       Script: {instanceID: 15886}
-    - Class: 114
-      Script: {instanceID: 16720}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -189,9 +192,9 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11842}
+      Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 12198}
     - Class: 114
       Script: {instanceID: 13118}
     - Class: 114
@@ -493,6 +496,12 @@ ScriptsOnlyBuild:
     className: ARPlane
   - hash:
       serializedVersion: 2
+      Hash: 6c4541e015544da79e7f43a6d4caeaa0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FaceManager
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -757,7 +766,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: dbb8e460e391f5b86fec1d761b019ae6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bird
@@ -1061,12 +1070,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 6c4541e015544da79e7f43a6d4caeaa0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FaceManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Loading.unity

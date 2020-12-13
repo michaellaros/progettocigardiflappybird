@@ -10,6 +10,17 @@ public class FaceBehaviour : MonoBehaviour
     Vector3[] defautFaceVertices;
     Vector3[] mouthOpenFaceVertices;
 
+    private void OnEnable()
+    {
+        FaceManager.Singleton.SetDefaultFaceVertices();
+        FaceManager.Singleton.currentFaceBehaviour = this;
+    }
+
+    private void OnDisable()
+    {
+        FaceManager.Singleton.currentFaceBehaviour = null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +43,8 @@ public class FaceBehaviour : MonoBehaviour
         {
             if(defautFaceVertices.Length > 0)
             {
-                FaceManager.Singleton.MouthOpenValue = Mathf.Clamp01( Vector3.Distance(defautFaceVertices[17], myMeshFilter.mesh.vertices[17]) / 0.016f);
+                Bird.Singleton.MouthOpenValue = Mathf.Clamp01(Vector3.Distance(defautFaceVertices[17], myMeshFilter.mesh.vertices[17]) / 0.016f);
             }
-            //FaceManager.Singleton.MyDebugText.text = myMeshFilter.mesh.vertexCount.ToString();
         }
     }
 }
