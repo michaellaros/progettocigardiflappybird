@@ -175,7 +175,7 @@ public class Level : MonoBehaviour {
             // Time to spawn another Pipe
             pipeSpawnTimer += pipeSpawnTimerMax;
             
-            float heightEdgeLimit = 10f;
+            float heightEdgeLimit = 1f;
             float minHeight = gapSize * .5f + heightEdgeLimit;
             float totalHeight = CAMERA_ORTHO_SIZE * 2f;
             float maxHeight = totalHeight - gapSize * .5f - heightEdgeLimit;
@@ -236,7 +236,7 @@ public class Level : MonoBehaviour {
 
     private void CreateGapPipes(float gapY, float gapSize, float xPosition) {
         CreatePipe(gapY - gapSize * .5f, xPosition, true);
-        CreatePipe(CAMERA_ORTHO_SIZE * 2f - gapY - gapSize * .5f, xPosition, false);
+        //CreatePipe(CAMERA_ORTHO_SIZE * 2f - gapY - gapSize * .5f, xPosition, false);
         pipesSpawned++;
         SetDifficulty(GetDifficulty());
     }
@@ -257,7 +257,9 @@ public class Level : MonoBehaviour {
         float pipeBodyYPosition;
         if (createBottom) {
             pipeBodyYPosition = -CAMERA_ORTHO_SIZE;
-        } else {
+        }
+        else
+        {
             pipeBodyYPosition = +CAMERA_ORTHO_SIZE;
             pipeBody.localScale = new Vector3(1, -1, 1);
         }

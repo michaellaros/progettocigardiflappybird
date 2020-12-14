@@ -15,15 +15,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey;
+using UnityEngine.UI;
 
 public class Bird : MonoBehaviour {
 
     private const float JUMP_AMOUNT = 90f;
 
-    private static Bird instance;
+    public static Bird Singleton;
+
+    public Animator AnimatorToActive;
 
     public static Bird GetInstance() {
-        return instance;
+        return Singleton;
     }
 
     public event EventHandler OnDied;
@@ -32,6 +35,8 @@ public class Bird : MonoBehaviour {
     private Rigidbody2D birdRigidbody2D;
     private State state;
 
+    public float MouthOpenValue;
+
     private enum State {
         WaitingToStart,
         Playing,
@@ -39,7 +44,7 @@ public class Bird : MonoBehaviour {
     }
 
     private void Awake() {
-        instance = this;
+        Singleton = this;
         birdRigidbody2D = GetComponent<Rigidbody2D>();
         birdRigidbody2D.bodyType = RigidbodyType2D.Static;
         state = State.WaitingToStart;
@@ -49,35 +54,46 @@ public class Bird : MonoBehaviour {
         switch (state) {
         default:
         case State.WaitingToStart:
-            if (TestInput()) {
-                // Start playing
-                state = State.Playing;
-                birdRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-                Jump();
-                if (OnStartedPlaying != null) OnStartedPlaying(this, EventArgs.Empty);
-            }
-            break;
+            if (MouthOpenValue == 1)
+                {
+                    // Start playing
+                    state = State.Playing;
+                    birdRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                    Jump();
+                    if (OnStartedPlaying != null) OnStartedPlaying(this, EventArgs.Empty);
+                }
+            
+                    break;
         case State.Playing:
-            if (TestInput()) {
+            if (MouthOpenValue == 1) 
+                {
                 Jump();
-            }
+                }
+            else
+                {
+                    AnimatorToActive.SetBool("Jump", false);
+                }
+           
 
-            // Rotate bird as it jumps and falls
-            transform.eulerAngles = new Vector3(0, 0, birdRigidbody2D.velocity.y * .15f);
+                    // Rotate bird as it jumps and falls
+                    transform.eulerAngles = new Vector3(0, 0, birdRigidbody2D.velocity.y * .15f);
             break;
         case State.Dead:
-            break;
+                break;
         }
+        
     }
 
-    private bool TestInput() {
-        return 
-            Input.GetKeyDown(KeyCode.Space) || 
+    public bool TestInput()
+    {
+        return
+            Input.GetKeyDown(KeyCode.Space) ||
             Input.GetMouseButtonDown(0) ||
             Input.touchCount > 0;
     }
 
     private void Jump() {
+        AnimatorToActive.SetBool("Jump", true);
         birdRigidbody2D.velocity = Vector2.up * JUMP_AMOUNT;
         SoundManager.PlaySound(SoundManager.Sound.BirdJump);
     }
