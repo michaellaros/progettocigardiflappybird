@@ -3435,5 +3435,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3638002846688340021, guid: d9939957204202c4f9dc3fce1fbd524f, type: 3}
+      propertyPath: pfPipeBody
+      value: 
+      objectReference: {fileID: 1813493964633639849, guid: 6efc8b80c50d73244b7b4a0e904eb9d5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9939957204202c4f9dc3fce1fbd524f, type: 3}

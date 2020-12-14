@@ -65,7 +65,8 @@ public class Bird : MonoBehaviour {
             
                     break;
         case State.Playing:
-            if (MouthOpenValue == 1) {
+            if (MouthOpenValue == 1) 
+                {
                 Jump();
                 }
             else
@@ -83,12 +84,13 @@ public class Bird : MonoBehaviour {
         
     }
 
-    //public bool TestInput() {
-    //    return 
-    //        Input.GetKeyDown(KeyCode.Space) || 
-    //        Input.GetMouseButtonDown(0) ||
-    //        Input.touchCount > 0;
-    //}
+    public bool TestInput()
+    {
+        return
+            Input.GetKeyDown(KeyCode.Space) ||
+            Input.GetMouseButtonDown(0) ||
+            Input.touchCount > 0;
+    }
 
     private void Jump() {
         AnimatorToActive.SetBool("Jump", true);
