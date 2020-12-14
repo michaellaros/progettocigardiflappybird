@@ -16,6 +16,9 @@ ScriptsOnlyBuild:
     - WaitingToStartWindow
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
+    - UnityEditor.U2D.Animation.SkinningCachePersistentState
+    Unity.2D.Animation.Runtime.dll:
+    - UnityEngine.U2D.Animation.SpriteSkin
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -46,8 +49,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -95,6 +100,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 111
@@ -114,33 +123,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12962}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 13116}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13238}
     - Class: 114
-      Script: {instanceID: 13468}
+      Script: {instanceID: 13466}
     - Class: 114
-      Script: {instanceID: 13472}
+      Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 14076}
+      Script: {instanceID: 14074}
     - Class: 114
-      Script: {instanceID: 14250}
+      Script: {instanceID: 14248}
     - Class: 114
-      Script: {instanceID: 14452}
+      Script: {instanceID: 14442}
     - Class: 114
-      Script: {instanceID: 14514}
+      Script: {instanceID: 14450}
     - Class: 114
-      Script: {instanceID: 14578}
+      Script: {instanceID: 14512}
     - Class: 114
-      Script: {instanceID: 14872}
+      Script: {instanceID: 14576}
     - Class: 114
-      Script: {instanceID: 14926}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 14932}
+      Script: {instanceID: 14924}
     - Class: 114
-      Script: {instanceID: 15074}
+      Script: {instanceID: 14930}
     - Class: 114
-      Script: {instanceID: 15116}
+      Script: {instanceID: 15072}
+    - Class: 114
+      Script: {instanceID: 15114}
+    - Class: 114
+      Script: {instanceID: 15150}
     - Class: 114
       Script: {instanceID: 15174}
     - Class: 114
@@ -155,8 +168,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15836}
     - Class: 114
       Script: {instanceID: 15886}
-    - Class: 114
-      Script: {instanceID: 16826}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -199,11 +210,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12198}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 13116}
     - Class: 114
-      Script: {instanceID: 13688}
+      Script: {instanceID: 13686}
     - Class: 114
-      Script: {instanceID: 15074}
+      Script: {instanceID: 15072}
     - Class: 114
       Script: {instanceID: 15836}
     - Class: 114
@@ -763,7 +774,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: dbb8e460e391f5b86fec1d761b019ae6
+      Hash: 3691ea911e627726b44f73358156a53a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bird
@@ -851,6 +862,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 6c4541e015544da79e7f43a6d4caeaa0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FaceManager
   - hash:
       serializedVersion: 2
       Hash: 6f195866f841a74edf8609a710343f67
@@ -1067,12 +1084,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 6c4541e015544da79e7f43a6d4caeaa0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FaceManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Loading.unity

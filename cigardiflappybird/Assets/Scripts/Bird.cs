@@ -23,6 +23,8 @@ public class Bird : MonoBehaviour {
 
     public static Bird Singleton;
 
+    public Animator AnimatorToActive;
+
     public static Bird GetInstance() {
         return Singleton;
     }
@@ -52,7 +54,7 @@ public class Bird : MonoBehaviour {
         switch (state) {
         default:
         case State.WaitingToStart:
-            if (MouthOpenValue >= 1)
+            if (MouthOpenValue == 1)
                 {
                     // Start playing
                     state = State.Playing;
@@ -63,16 +65,20 @@ public class Bird : MonoBehaviour {
             
                     break;
         case State.Playing:
-            if (MouthOpenValue >= 1) {
+            if (MouthOpenValue == 1) {
                 Jump();
-            }
+                }
+            else
+                {
+                    AnimatorToActive.SetBool("Jump", false);
+                }
            
 
                     // Rotate bird as it jumps and falls
                     transform.eulerAngles = new Vector3(0, 0, birdRigidbody2D.velocity.y * .15f);
             break;
         case State.Dead:
-            break;
+                break;
         }
         
     }
@@ -85,6 +91,7 @@ public class Bird : MonoBehaviour {
     //}
 
     private void Jump() {
+        AnimatorToActive.SetBool("Jump", true);
         birdRigidbody2D.velocity = Vector2.up * JUMP_AMOUNT;
         SoundManager.PlaySound(SoundManager.Sound.BirdJump);
     }

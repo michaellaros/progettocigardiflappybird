@@ -13,6 +13,8 @@ public class FaceManager : MonoBehaviour
 
     public float MouthOpenValue;
 
+    private int jump;
+
     private void OnEnable()
     {
         Singleton = this;
@@ -44,6 +46,23 @@ public class FaceManager : MonoBehaviour
     void Update()
     {
         MyDebugText.text = MouthOpenValue.ToString();
-        Bird.Singleton.MouthOpenValue = MouthOpenValue;
+        if (MouthOpenValue >= 0.8f)
+        {
+            jump = jump + 1;
+        }
+        else if (MouthOpenValue <= 0.79f)
+        {
+            jump = 0;
+        }
+
+        if(jump == 1)
+        {
+            Bird.Singleton.MouthOpenValue = 1;
+        }
+        else
+        {
+            Bird.Singleton.MouthOpenValue = 0;
+        }
+        
     }
 }
